@@ -1,0 +1,57 @@
+.aside {
+  background: $color-secondary;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 5em;
+
+  &__background {
+    max-width: 75em;
+    position: absolute;
+    top: 10em;
+    left: -11em;
+    opacity: 0.075;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__button {
+    background: $color-grey;
+    color: $color-white;
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding: 0.85em 1.25em;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    -webkit-box-shadow: 1px 5px 3px 1px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 1px 5px 3px 1px rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 5px 3px 1px rgba(0, 0, 0, 0.25);
+
+    &:hover {
+      background: $color-grey-1;
+    }
+
+    &:active {
+      outline: none;
+      background: $color-grey-2;
+    }
+  }
+
+  &__icon__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4em;
+    height: 4em;
+    background: $color-grey;
+    border-radius: 50%;
+    -webkit-box-shadow: 1px 5px 3px 1px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 1px 5px 3px 1px rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 5px 3px 1px rgba(0, 0, 0, 0.25);
+  }
+}

@@ -1,5 +1,6 @@
 import RectangularCard from "../RectangularCard";
 import SquareCard from "../SquareCard";
+import Footer from "./Footer";
 
 const ContentSection: React.FC = () => {
   return (
@@ -25,6 +26,7 @@ const ContentSection: React.FC = () => {
         <h2 className="section__highlights__title">Today's highlights</h2>
         <RectangularCard />
       </div>
+      <Footer />
     </section>
   );
 };

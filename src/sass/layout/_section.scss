@@ -1,3 +1,42 @@
 .section {
-  background: yellow;
+  padding: 5em 7em;
+
+  .section__temperature {
+    display: flex;
+    justify-content: flex-end;
+
+    &__wrapper {
+      @include roundedCircle;
+
+      &--celsius {
+        background: $color-white;
+        color: $color-dark-blue;
+        margin-right: 1em;
+
+        & p {
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
+      }
+
+      &--fahrenheit {
+        background: $color-tertiary;
+
+        & p {
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .section__highlights {
+    margin-top: 5em;
+
+    &__title {
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin-bottom: 2em;
+    }
+  }
 }

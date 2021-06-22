@@ -1,0 +1,46 @@
+.rectangular__card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3em;
+
+  &__content {
+    background: $color-secondary;
+    padding: 3em;
+    height: 20em;
+    @include flexVertical;
+    justify-content: center;
+  }
+
+  &_title {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  &__rate {
+    font-size: 7rem;
+    font-weight: 600;
+    margin: 0.2em 0;
+
+    & span {
+      font-size: 4rem;
+      font-weight: 400;
+      margin-left: -0.5em;
+    }
+  }
+
+  &__bottom__wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon__wrapper {
+    @include roundedCircle;
+    height: 2.5em;
+    width: 2.5em;
+    margin-right: 1em;
+
+    & .rectangular__card__icon {
+      transform: rotate(180deg);
+    }
+  }
+}

@@ -13,7 +13,7 @@ html {
 
 body {
   background: #100e1d;
-  color: #f3f3f3;
+  color: #e7e7eb;
   font-family: "Raleway", sans-serif;
 }
 
@@ -23,6 +23,144 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 5em;
+}
+
+.card .squareCard {
+  padding: 1.5em;
+  width: 12em;
+  height: 17em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #1e213a;
+}
+
+.card .squareCard__title {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.card .squareCard__img {
+  width: 7em;
+  display: block;
+  margin-bottom: auto;
+}
+
+.card .squareCard__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card .squareCard__content__text--1 {
+  font-size: 1.25rem;
+  margin-right: 2em;
+  font-weight: 600;
+}
+
+.card .squareCard__content__text--2 {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #a09fb1;
+}
+
+.rectangular__card {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 3em;
+}
+
+.rectangular__card__content {
+  background: #1e213a;
+  padding: 3em;
+  height: 20em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.rectangular__card_title {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.rectangular__card__rate {
+  font-size: 7rem;
+  font-weight: 600;
+  margin: 0.2em 0;
+}
+
+.rectangular__card__rate span {
+  font-size: 4rem;
+  font-weight: 400;
+  margin-left: -0.5em;
+}
+
+.rectangular__card__bottom__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.rectangular__card__icon__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 4em;
+  height: 4em;
+  background: #6e707a;
+  border-radius: 50%;
+  height: 2.5em;
+  width: 2.5em;
+  margin-right: 1em;
+}
+
+.rectangular__card__icon__wrapper .rectangular__card__icon {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 .aside {
@@ -55,7 +193,7 @@ a {
 
 .aside__button {
   background: #6e707a;
-  color: #f3f3f3;
+  color: #e7e7eb;
   font-size: 1.5rem;
   font-weight: 400;
   padding: 0.85em 1.25em;
@@ -89,6 +227,7 @@ a {
   height: 4em;
   background: #6e707a;
   border-radius: 50%;
+  cursor: pointer;
   -webkit-box-shadow: 1px 5px 3px 1px rgba(0, 0, 0, 0.25);
   box-shadow: 1px 5px 3px 1px rgba(0, 0, 0, 0.25);
 }
@@ -131,7 +270,7 @@ a {
 .aside__weather__state {
   font-size: 3rem;
   font-weight: 400;
-  margin-top: 1em;
+  margin-top: 1.5em;
   margin-bottom: 2em;
   color: #88869d;
 }
@@ -168,6 +307,61 @@ a {
 }
 
 .section {
-  background: yellow;
+  padding: 5em 7em;
+}
+
+.section .section__temperature {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.section .section__temperature__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 4em;
+  height: 4em;
+  background: #6e707a;
+  border-radius: 50%;
+}
+
+.section .section__temperature__wrapper--celsius {
+  background: #e7e7eb;
+  color: #110e3c;
+  margin-right: 1em;
+}
+
+.section .section__temperature__wrapper--celsius p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.section .section__temperature__wrapper--fahrenheit {
+  background: #585676;
+}
+
+.section .section__temperature__wrapper--fahrenheit p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.section .section__highlights {
+  margin-top: 5em;
+}
+
+.section .section__highlights__title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 2em;
 }
 /*# sourceMappingURL=index.css.map */

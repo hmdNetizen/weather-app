@@ -1,5 +1,8 @@
+@import "abstracts/mixins";
 @import "abstracts/variables";
 @import "base/base";
+@import "components/squareCard";
+@import "components/rectangularCard";
 @import "layout/aside";
 @import "layout/main";
 @import "layout/section";

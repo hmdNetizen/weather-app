@@ -1,10 +1,11 @@
 import AsideContent from "./Aside";
+import ContentSection from "./ContentSection";
 
 const MainContents: React.FC = () => {
   return (
     <main className="main">
       <AsideContent />
-      <section className="section">Section</section>
+      <ContentSection />
     </main>
   );
 };

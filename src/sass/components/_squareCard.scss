@@ -1,0 +1,42 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 5em;
+
+  & .squareCard {
+    padding: 1.5em;
+    width: 12em;
+    height: 17em;
+    @include flexVertical;
+    background: $color-secondary;
+
+    &__title {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    &__img {
+      width: 7em;
+      display: block;
+      margin-bottom: auto;
+    }
+
+    &__content {
+      display: flex;
+      align-items: center;
+
+      &__text--1 {
+        font-size: 1.25rem;
+        margin-right: 2em;
+        font-weight: 600;
+      }
+
+      &__text--2 {
+        font-size: 1.05rem;
+        font-weight: 500;
+        color: $color-grey-light-1;
+      }
+    }
+  }
+}

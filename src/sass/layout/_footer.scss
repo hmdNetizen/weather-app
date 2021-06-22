@@ -1,3 +1,22 @@
 .footer {
-  padding-left: 5em;
+  padding-top: 7em;
+  text-align: center;
+
+  &__text {
+    font-size: 1.5rem;
+    font-weight: 500;
+
+    & a {
+      color: $color-white;
+      text-decoration: underline;
+
+      &:hover {
+        color: $color-yellow;
+      }
+
+      &:active {
+        color: $color-yellow;
+      }
+    }
+  }
 }

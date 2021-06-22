@@ -5,12 +5,12 @@
 
   &__content {
     background: $color-secondary;
-    padding: 3em;
+    padding: 1.5em;
     @include flexVertical;
     justify-content: center;
 
     &--row {
-      padding: 2em;
+      padding: 1.2em;
     }
   }
 
@@ -20,12 +20,12 @@
   }
 
   &__rate {
-    font-size: 7rem;
+    font-size: 6rem;
     font-weight: 600;
     margin: 0.2em 0;
 
     & span {
-      font-size: 4rem;
+      font-size: 3rem;
       font-weight: 400;
       margin-left: -0.5em;
     }

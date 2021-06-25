@@ -1,10 +1,14 @@
+import SearchField from "../SearchField";
 import AsideContent from "./Aside";
 import ContentSection from "./ContentSection";
 
 const MainContents: React.FC = () => {
   return (
     <main className="main">
-      <AsideContent />
+      <aside className="aside">
+        <SearchField />
+        {/* <AsideContent /> */}
+      </aside>
       <ContentSection />
     </main>
   );

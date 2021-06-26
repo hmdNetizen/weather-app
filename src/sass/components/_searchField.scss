@@ -1,6 +1,17 @@
 .search {
   width: 100%;
-  display: flex;
+
+  &__closeIcon {
+    display: block;
+    margin-left: auto;
+    margin-bottom: 3em;
+    cursor: pointer;
+  }
+  &__form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
   &__input__wrapper {
     position: relative;
@@ -19,6 +30,10 @@
     &:focus {
       outline: none;
     }
+
+    &::placeholder {
+      color: $color-dark-grey;
+    }
   }
 
   &__icon {
@@ -26,12 +41,12 @@
     top: 50%;
     left: 1em;
     transform: translateY(-50%);
+    color: $color-dark-grey;
   }
 
   &__button {
-    padding-left: 1em;
-    padding-right: 1em;
     border-radius: 0;
+    flex: 1;
     font-weight: 500;
     border: 0;
     background: $color-light-blue;
@@ -45,5 +60,10 @@
     &:active {
       background: $color-light-blue-2;
     }
+  }
+
+  &__inactive {
+    visibility: hidden;
+    opacity: 0;
   }
 }

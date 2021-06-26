@@ -3,16 +3,23 @@ import cloudBackground from "../../assets/Cloud-background.png";
 import { MdMyLocation, MdLocationOn } from "react-icons/md";
 import showerIcon from "../../assets/Shower.png";
 
-const AsideContent: React.FC = () => {
+interface Props {
+  setOpenSearch: (openSearch: boolean) => void;
+  openSearch: boolean;
+}
+
+const AsideContent: React.FC<Props> = ({ openSearch, setOpenSearch }) => {
   return (
-    <Fragment>
+    <div className="aside__content">
       <img
         src={cloudBackground}
         alt="cloud background"
         className="aside__background"
       />
       <div className="aside__wrapper">
-        <button className="aside__button">Search for places</button>
+        <button className="aside__button" onClick={() => setOpenSearch(true)}>
+          Search for places
+        </button>
         <div className="aside__location__icon">
           <MdMyLocation size={25} />
         </div>
@@ -36,7 +43,7 @@ const AsideContent: React.FC = () => {
           </div>
         </div>
       </div>
-    </Fragment>
+    </div>
   );
 };
 

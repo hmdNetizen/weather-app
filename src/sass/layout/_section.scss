@@ -5,26 +5,30 @@
     display: flex;
     justify-content: flex-end;
 
-    &__wrapper {
+    &__button {
       @include roundedCircle;
+      display: block;
+      height: 3em;
+      width: 3em;
+      border: 0;
+      cursor: pointer;
 
       &--celsius {
         background: $color-white;
         color: $color-dark-blue;
         margin-right: 1em;
 
-        & p {
-          font-size: 1.5rem;
-          font-weight: 600;
+        &:active {
+          background: $color-grey-light-1;
         }
       }
 
       &--fahrenheit {
         background: $color-tertiary;
+        color: $color-white;
 
-        & p {
-          font-size: 1.5rem;
-          font-weight: 600;
+        &:active {
+          background: $color-dark-blue-1;
         }
       }
     }

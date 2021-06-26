@@ -7,7 +7,7 @@ const MainContents: React.FC = () => {
   const [openSearch, setOpenSearch] = useState(false);
   return (
     <main className="main">
-      <aside className={`aside`}>
+      <aside className="aside">
         {!openSearch ? (
           <AsideContent setOpenSearch={setOpenSearch} openSearch={openSearch} />
         ) : (

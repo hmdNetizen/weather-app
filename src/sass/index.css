@@ -496,7 +496,7 @@ a {
           justify-content: flex-end;
 }
 
-.section .section__temperature__wrapper {
+.section .section__temperature__button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -510,26 +510,30 @@ a {
   height: 4em;
   background: #6e707a;
   border-radius: 50%;
+  display: block;
+  height: 3em;
+  width: 3em;
+  border: 0;
+  cursor: pointer;
 }
 
-.section .section__temperature__wrapper--celsius {
+.section .section__temperature__button--celsius {
   background: #e7e7eb;
   color: #110e3c;
   margin-right: 1em;
 }
 
-.section .section__temperature__wrapper--celsius p {
-  font-size: 1.5rem;
-  font-weight: 600;
+.section .section__temperature__button--celsius:active {
+  background: #a09fb1;
 }
 
-.section .section__temperature__wrapper--fahrenheit {
+.section .section__temperature__button--fahrenheit {
   background: #585676;
+  color: #e7e7eb;
 }
 
-.section .section__temperature__wrapper--fahrenheit p {
-  font-size: 1.5rem;
-  font-weight: 600;
+.section .section__temperature__button--fahrenheit:active {
+  background: #0f0b53;
 }
 
 .section .section__highlights {

@@ -6,16 +6,12 @@ const ContentSection: React.FC = () => {
   return (
     <section className="section">
       <div className="section__temperature">
-        <div className="section__temperature__wrapper section__temperature__wrapper--celsius">
-          <p>
-            <sup>o</sup>C
-          </p>
-        </div>
-        <div className="section__temperature__wrapper section__temperature__wrapper--fahrenheit">
-          <p>
-            <sup>o</sup>F
-          </p>
-        </div>
+        <button className="section__temperature__button section__temperature__button--celsius">
+          <sup>o</sup>C
+        </button>
+        <button className="section__temperature__button section__temperature__button--fahrenheit">
+          <sup>o</sup>F
+        </button>
       </div>
       <div className="card">
         {[...new Array(5)].map((data: any) => (

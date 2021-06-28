@@ -1,12 +1,16 @@
 import ReactDOM from "react-dom";
 import "./sass/index.css";
 import MainContents from "./components/layouts/MainContents";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 const App = () => {
   return (
-    <div>
-      <MainContents />
-    </div>
+    <Provider store={store}>
+      <div>
+        <MainContents />
+      </div>
+    </Provider>
   );
 };
 

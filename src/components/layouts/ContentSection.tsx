@@ -14,8 +14,8 @@ const ContentSection: React.FC = () => {
         </button>
       </div>
       <div className="card">
-        {[...new Array(5)].map((data: any) => (
-          <SquareCard />
+        {[...new Array(5)].map((data: any, index) => (
+          <SquareCard key={index} />
         ))}
       </div>
       <div className="section__highlights">

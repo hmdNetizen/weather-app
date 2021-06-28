@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import cloudBackground from "../../assets/Cloud-background.png";
 import { MdMyLocation, MdLocationOn } from "react-icons/md";
 import showerIcon from "../../assets/Shower.png";

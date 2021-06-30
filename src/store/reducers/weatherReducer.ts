@@ -20,22 +20,20 @@ const weatherReducer = (
   switch (action.type) {
     case ActionTypes.GET_WEATHER_DATA:
       return {
-        ...state,
         loading: true,
+        weatherData: [],
         error: null,
       };
     case ActionTypes.GET_WEATHER_DATA_SUCCESS:
       return {
-        ...state,
         loading: false,
-        weatherData: ["Hi", "Hello"],
+        weatherData: action.payload,
         error: null,
       };
     case ActionTypes.GET_WEATHER_DATA_FAILURE:
       return {
-        ...state,
         loading: false,
-        error: "404 Error",
+        error: action.payload,
         weatherData: [],
       };
     default:

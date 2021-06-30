@@ -414,9 +414,6 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -424,9 +421,14 @@ a {
   padding-top: 7em;
 }
 
+.aside__weather__icon {
+  width: 22em;
+}
+
 .aside__weather__degree {
   font-size: 10rem;
   font-weight: 400;
+  margin-top: 0.25em;
 }
 
 .aside__weather__degree sup {
@@ -448,7 +450,7 @@ a {
 }
 
 .aside__weather__date {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: #88869d;
 }
 
@@ -462,9 +464,10 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-weight: 600;
+  font-weight: 500;
   color: #88869d;
   margin-top: 3em;
+  font-size: 1.5rem;
 }
 
 .aside__weather__location p {

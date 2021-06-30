@@ -1,4 +1,5 @@
 import { ActionTypes } from "../action-types";
+import { WeatherDataset } from "../reducers/weatherReducer";
 
 interface GetWeatherDataAction {
   type: ActionTypes.GET_WEATHER_DATA;
@@ -6,7 +7,7 @@ interface GetWeatherDataAction {
 
 interface GetWeatherDataSuccessAction {
   type: ActionTypes.GET_WEATHER_DATA_SUCCESS;
-  payload: string[];
+  payload: WeatherDataset | null;
 }
 
 interface GetWeatherDataFailureAction {

@@ -4,7 +4,7 @@ import { Action } from "../actions";
 import axios from "axios";
 
 const BASE_URL =
-  "https://cors-anywhere-venky.herokuapp.com/https://www.metaweather.com/api/location/";
+  "https://rhubarb-crumble-16507.herokuapp.com/https://www.metaweather.com/api/location/";
 
 export const fetchWeatherData =
   (woeid: number) => async (dispatch: Dispatch<Action>) => {

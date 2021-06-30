@@ -1,15 +1,34 @@
 import { ActionTypes } from "../action-types";
 import { Action } from "../actions";
 
+export interface WeatherDataset {
+  consolidated_weather: {
+    id: number;
+    weather_state_name: string;
+    weather_state_abbr: string;
+    applicable_date: string;
+    min_temp: number;
+    max_temp: number;
+    the_temp: number;
+    wind_speed: number;
+    air_pressure: number;
+    humidity: number;
+    visibility: number;
+  }[];
+  title: string;
+  woeid: number;
+  latt_long: string;
+}
+
 const initialState = {
   loading: false,
-  weatherData: [],
+  weatherData: null,
   error: null,
 };
 
 interface WeatherState {
   loading: boolean;
-  weatherData: string[];
+  weatherData: WeatherDataset | null;
   error: string | null;
 }
 
@@ -21,7 +40,7 @@ const weatherReducer = (
     case ActionTypes.GET_WEATHER_DATA:
       return {
         loading: true,
-        weatherData: [],
+        weatherData: null,
         error: null,
       };
     case ActionTypes.GET_WEATHER_DATA_SUCCESS:
@@ -34,7 +53,7 @@ const weatherReducer = (
       return {
         loading: false,
         error: action.payload,
-        weatherData: [],
+        weatherData: null,
       };
     default:
       return state;

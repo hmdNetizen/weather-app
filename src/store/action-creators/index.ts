@@ -19,6 +19,10 @@ export const fetchWeatherData =
         type: ActionTypes.GET_WEATHER_DATA_SUCCESS,
         payload: data,
       });
+
+      dispatch({
+        type: ActionTypes.WEATHER_DEGREE_IS_CELSIUS,
+      });
     } catch (error) {
       dispatch({
         type: ActionTypes.GET_WEATHER_DATA_FAILURE,
@@ -26,3 +30,14 @@ export const fetchWeatherData =
       });
     }
   };
+
+export const getDegreeCelsius = () => (dispatch: Dispatch) =>
+  dispatch({
+    type: ActionTypes.WEATHER_DEGREE_IS_CELSIUS,
+  });
+
+export const getDegreeFahrenheit = () => (dispatch: Dispatch) => {
+  dispatch({
+    type: ActionTypes.WEATHER_DEGREE_IS_FAHRENHEIT,
+  });
+};

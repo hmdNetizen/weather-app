@@ -1,17 +1,25 @@
 import { useTypedSelector } from "../hooks/useTypedSelector";
+import { useActions } from "./../hooks/useActions";
 import RectangularCard from "../RectangularCard";
 import SquareCard from "../SquareCard";
 import Footer from "./Footer";
 
 const ContentSection: React.FC = () => {
   const { weatherData } = useTypedSelector((state) => state.weather);
+  const { getDegreeCelsius, getDegreeFahrenheit } = useActions();
   return (
     <section className="section">
       <div className="section__temperature">
-        <button className="section__temperature__button section__temperature__button--celsius">
+        <button
+          className="section__temperature__button section__temperature__button--celsius"
+          onClick={getDegreeCelsius}
+        >
           <sup>o</sup>C
         </button>
-        <button className="section__temperature__button section__temperature__button--fahrenheit">
+        <button
+          className="section__temperature__button section__temperature__button--fahrenheit"
+          onClick={getDegreeFahrenheit}
+        >
           <sup>o</sup>F
         </button>
       </div>

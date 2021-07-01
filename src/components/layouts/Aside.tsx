@@ -4,6 +4,7 @@ import cloudBackground from "../../assets/Cloud-background.png";
 import { MdMyLocation, MdLocationOn } from "react-icons/md";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import showWeatherImage from "../../helpers/showWeatherImage";
+import { celsiusToFahrenheit } from "../../helpers/celsiuToFahrenheit";
 
 interface Props {
   setOpenSearch: (openSearch: boolean) => void;
@@ -11,7 +12,7 @@ interface Props {
 }
 
 const AsideContent: React.FC<Props> = ({ openSearch, setOpenSearch }) => {
-  const { weatherData } = useTypedSelector((state) => state.weather);
+  const { weatherData, isCelsius } = useTypedSelector((state) => state.weather);
 
   return (
     <div className="aside__content">
@@ -41,9 +42,13 @@ const AsideContent: React.FC<Props> = ({ openSearch, setOpenSearch }) => {
             />
             <div className="aside__weather__description">
               <h1 className="aside__weather__degree">
-                {weatherData.consolidated_weather[0].the_temp.toFixed(0)}
+                {!isCelsius
+                  ? celsiusToFahrenheit(
+                      Math.round(weatherData.consolidated_weather[0].the_temp)
+                    )
+                  : weatherData.consolidated_weather[0].the_temp.toFixed()}
                 <sup>o</sup>
-                <span>C</span>
+                <span>{!isCelsius ? "F" : "C"}</span>
               </h1>
               <h3 className="aside__weather__state">
                 {weatherData.consolidated_weather[0].weather_state_name}

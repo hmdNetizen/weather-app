@@ -15,7 +15,17 @@ interface GetWeatherDataFailureAction {
   payload: string | null;
 }
 
+interface WeatherDegreeIsCelsius {
+  type: ActionTypes.WEATHER_DEGREE_IS_CELSIUS;
+}
+
+interface weatherDegreeIsFahrenheit {
+  type: ActionTypes.WEATHER_DEGREE_IS_FAHRENHEIT;
+}
+
 export type Action =
   | GetWeatherDataAction
   | GetWeatherDataSuccessAction
-  | GetWeatherDataFailureAction;
+  | GetWeatherDataFailureAction
+  | WeatherDegreeIsCelsius
+  | weatherDegreeIsFahrenheit;

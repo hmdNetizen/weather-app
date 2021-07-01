@@ -24,12 +24,14 @@ const initialState = {
   loading: false,
   weatherData: null,
   error: null,
+  isCelsius: true,
 };
 
 interface WeatherState {
   loading: boolean;
   weatherData: WeatherDataset | null;
   error: string | null;
+  isCelsius: boolean;
 }
 
 const weatherReducer = (
@@ -39,21 +41,34 @@ const weatherReducer = (
   switch (action.type) {
     case ActionTypes.GET_WEATHER_DATA:
       return {
+        ...state,
         loading: true,
         weatherData: null,
         error: null,
       };
     case ActionTypes.GET_WEATHER_DATA_SUCCESS:
       return {
+        ...state,
         loading: false,
         weatherData: action.payload,
         error: null,
       };
     case ActionTypes.GET_WEATHER_DATA_FAILURE:
       return {
+        ...state,
         loading: false,
         error: action.payload,
         weatherData: null,
+      };
+    case ActionTypes.WEATHER_DEGREE_IS_CELSIUS:
+      return {
+        ...state,
+        isCelsius: true,
+      };
+    case ActionTypes.WEATHER_DEGREE_IS_FAHRENHEIT:
+      return {
+        ...state,
+        isCelsius: false,
       };
     default:
       return state;

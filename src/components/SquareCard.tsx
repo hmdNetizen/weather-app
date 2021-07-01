@@ -1,5 +1,7 @@
 import moment from "moment";
+import { celsiusToFahrenheit } from "../helpers/celsiuToFahrenheit";
 import showWeatherImage from "../helpers/showWeatherImage";
+import { useTypedSelector } from "./hooks/useTypedSelector";
 
 interface Props {
   day: {
@@ -12,6 +14,8 @@ interface Props {
 }
 
 const SquareCard: React.FC<Props> = ({ day }) => {
+  const { isCelsius } = useTypedSelector((state) => state.weather);
+
   const days =
     day &&
     moment(day.applicable_date).format("ll") ===
@@ -28,12 +32,18 @@ const SquareCard: React.FC<Props> = ({ day }) => {
       />
       <div className="squareCard__content">
         <p className="squareCard__content__text--1">
-          {day.max_temp.toFixed(0)}
-          <sup>o</sup>C
+          {!isCelsius
+            ? celsiusToFahrenheit(day.max_temp)
+            : day.max_temp.toFixed()}
+          <sup>o</sup>
+          {isCelsius ? "C" : "F"}
         </p>
         <p className="squareCard__content__text--2">
-          {day.min_temp.toFixed(0)}
-          <sup>o</sup>C
+          {!isCelsius
+            ? celsiusToFahrenheit(day.min_temp)
+            : day.min_temp.toFixed()}
+          <sup>o</sup>
+          {isCelsius ? "C" : "F"}
         </p>
       </div>
     </div>

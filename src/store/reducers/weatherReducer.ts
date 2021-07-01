@@ -20,11 +20,19 @@ export interface WeatherDataset {
   latt_long: string;
 }
 
+export interface locationDataset {
+  placeId: number;
+  lat: string;
+  lon: string;
+  display_name: string;
+}
+
 const initialState = {
   loading: false,
   weatherData: null,
   error: null,
   isCelsius: true,
+  mapLocation: [],
 };
 
 interface WeatherState {
@@ -32,6 +40,7 @@ interface WeatherState {
   weatherData: WeatherDataset | null;
   error: string | null;
   isCelsius: boolean;
+  mapLocation: locationDataset[];
 }
 
 const weatherReducer = (
@@ -69,6 +78,13 @@ const weatherReducer = (
       return {
         ...state,
         isCelsius: false,
+      };
+    case ActionTypes.GET_LOCATION_FROM_MAP:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        mapLocation: action.payload,
       };
     default:
       return state;

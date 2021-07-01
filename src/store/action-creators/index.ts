@@ -31,6 +31,23 @@ export const fetchWeatherData =
     }
   };
 
+export const getLocationFromMap =
+  (position: string) => async (dispatch: Dispatch) => {
+    const location = position.split(" ").join("+");
+    try {
+      const { data } = await axios.get(
+        `https://nominatim.openstreetmap.org/search/?city=${location}&format=json`
+      );
+
+      dispatch({
+        type: ActionTypes.GET_LOCATION_FROM_MAP,
+        payload: data,
+      });
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
 export const getDegreeCelsius = () => (dispatch: Dispatch) =>
   dispatch({
     type: ActionTypes.WEATHER_DEGREE_IS_CELSIUS,

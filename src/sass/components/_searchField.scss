@@ -61,9 +61,31 @@
       background: $color-light-blue-2;
     }
   }
+  &__list {
+    width: 100%;
+    background: $color-white;
 
-  &__inactive {
-    visibility: hidden;
-    opacity: 0;
+    &__item {
+      display: flex;
+      padding: 1em;
+      cursor: pointer;
+
+      &:not(:last-of-type) {
+        border-bottom: 1px solid $color-grey-light;
+      }
+    }
+
+    &__item__icon {
+      font-size: 2rem;
+      min-width: 1em;
+      align-self: flex-start;
+      margin-right: 0.5em;
+      color: $color-dark-blue-1;
+    }
+
+    &__item__text {
+      font-size: 1.5rem;
+      color: $color-light-blue;
+    }
   }
 }

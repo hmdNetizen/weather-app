@@ -145,6 +145,16 @@ a {
   height: 0.5em;
   border-radius: 10em;
   margin-bottom: 0.2em;
+  background: #e7e7eb;
+  position: relative;
+}
+
+.rectangular__card__progressBar__done {
+  position: absolute;
+  border-radius: 10em;
+  top: 0;
+  left: 0;
+  height: 100%;
   background: #ffec65;
 }
 

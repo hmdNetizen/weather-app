@@ -70,7 +70,20 @@
       height: 0.5em;
       border-radius: 10em;
       margin-bottom: 0.2em;
+      background: $color-white;
+      position: relative;
+    }
+
+    &__done {
+      position: absolute;
+      border-radius: 10em;
+      top: 0;
+      left: 0;
+      height: 100%;
       background: $color-yellow;
+      // animation-name: progress;
+      // animation-duration: 3s;
+      // animation-fill-mode: forwards;
     }
 
     &__percent {
@@ -80,3 +93,13 @@
     }
   }
 }
+
+// @keyframes progress {
+//   0% {
+//     width: 0;
+//   }
+
+//   100% {
+//     width: 90%;
+//   }
+// }

@@ -1,5 +1,5 @@
 import moment from "moment";
-import showWeatherImage from "./showWeatherImage";
+import showWeatherImage from "../helpers/showWeatherImage";
 
 interface Props {
   day: {

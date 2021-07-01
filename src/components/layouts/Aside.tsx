@@ -3,7 +3,7 @@ import Moment from "react-moment";
 import cloudBackground from "../../assets/Cloud-background.png";
 import { MdMyLocation, MdLocationOn } from "react-icons/md";
 import { useTypedSelector } from "../hooks/useTypedSelector";
-import showWeatherImage from "./../showWeatherImage";
+import showWeatherImage from "../../helpers/showWeatherImage";
 
 interface Props {
   setOpenSearch: (openSearch: boolean) => void;

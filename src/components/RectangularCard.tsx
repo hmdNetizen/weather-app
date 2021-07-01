@@ -39,7 +39,14 @@ const RectangularCard: React.FC = () => {
                 <p className="rectangular__card__progressBar__point">50</p>
                 <p className="rectangular__card__progressBar__point">100</p>
               </div>
-              <div className="rectangular__card__progressBar__line" />
+              <div className="rectangular__card__progressBar__line">
+                <div
+                  className="rectangular__card__progressBar__done"
+                  style={{
+                    width: weatherData.consolidated_weather[0].humidity + "%",
+                  }}
+                />
+              </div>
               <p className="rectangular__card__progressBar__percent">%</p>
             </div>
           </div>

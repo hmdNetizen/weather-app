@@ -1,8 +1,10 @@
+import { useTypedSelector } from "../hooks/useTypedSelector";
 import RectangularCard from "../RectangularCard";
 import SquareCard from "../SquareCard";
 import Footer from "./Footer";
 
 const ContentSection: React.FC = () => {
+  const { weatherData } = useTypedSelector((state) => state.weather);
   return (
     <section className="section">
       <div className="section__temperature">
@@ -14,9 +16,10 @@ const ContentSection: React.FC = () => {
         </button>
       </div>
       <div className="card">
-        {[...new Array(5)].map((data: any, index) => (
-          <SquareCard key={index} />
-        ))}
+        {weatherData &&
+          weatherData.consolidated_weather
+            .slice(1)
+            .map((data: any) => <SquareCard key={data.id} day={data} />)}
       </div>
       <div className="section__highlights">
         <h2 className="section__highlights__title">Today's highlights</h2>

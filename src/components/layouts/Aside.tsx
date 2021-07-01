@@ -41,7 +41,7 @@ const AsideContent: React.FC<Props> = ({ openSearch, setOpenSearch }) => {
             />
             <div className="aside__weather__description">
               <h1 className="aside__weather__degree">
-                {Math.ceil(weatherData.consolidated_weather[0].the_temp)}
+                {weatherData.consolidated_weather[0].the_temp.toFixed(0)}
                 <sup>o</sup>
                 <span>C</span>
               </h1>

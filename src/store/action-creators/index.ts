@@ -31,6 +31,7 @@ export const fetchWeatherData =
     }
   };
 
+//   This fetches data corresponding to the input text from openstreetmap api
 export const getLocationFromMap =
   (position: string) => async (dispatch: Dispatch) => {
     const location = position.split(" ").join("+");
@@ -46,6 +47,24 @@ export const getLocationFromMap =
     } catch (error) {
       console.error(error.message);
     }
+  };
+
+//   This clears off the data from openstreetmap api
+export const clearLocationFromMap = () => (dispatch: Dispatch) => {
+  dispatch({
+    type: ActionTypes.CLEAR_LOCATION_FROM_MAP,
+  });
+};
+
+export const getLocationCoords =
+  (coords: { lat: string; lon: string }) => (dispatch: Dispatch) => {
+    dispatch({
+      type: ActionTypes.GET_LOCATION_COORDINATES,
+      payload: {
+        lat: coords.lat,
+        long: coords.lon,
+      },
+    });
   };
 
 export const getDegreeCelsius = () => (dispatch: Dispatch) =>

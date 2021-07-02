@@ -33,6 +33,18 @@ interface getLocationFromMapAction {
   payload: locationDataset[];
 }
 
+interface clearLocationFromMapAction {
+  type: ActionTypes.CLEAR_LOCATION_FROM_MAP;
+}
+
+interface getLocationCoordsAction {
+  type: ActionTypes.GET_LOCATION_COORDINATES;
+  payload: {
+    lat: string;
+    lon: string;
+  };
+}
+
 export type Action =
   | GetWeatherDataAction
   | GetWeatherDataSuccessAction
@@ -40,4 +52,6 @@ export type Action =
   | WeatherDegreeIsCelsiusAction
   | weatherDegreeIsFahrenheitAction
   | SearchedWeatherDataSuccessAction
-  | getLocationFromMapAction;
+  | getLocationFromMapAction
+  | clearLocationFromMapAction
+  | getLocationCoordsAction;

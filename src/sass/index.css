@@ -316,6 +316,7 @@ a {
 .search__list {
   width: 100%;
   background: #e7e7eb;
+  margin-top: 0.5em;
 }
 
 .search__list__item {
@@ -328,6 +329,10 @@ a {
 
 .search__list__item:not(:last-of-type) {
   border-bottom: 1px solid #88869d;
+}
+
+.search__list__item:hover {
+  background: rgba(58, 68, 216, 0.2);
 }
 
 .search__list__item__icon {

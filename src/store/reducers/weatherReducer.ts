@@ -27,21 +27,26 @@ export interface locationDataset {
   display_name: string;
 }
 
-const initialState = {
-  loading: false,
-  weatherData: null,
-  error: null,
-  isCelsius: true,
-  mapLocation: [],
-};
-
 interface WeatherState {
   loading: boolean;
   weatherData: WeatherDataset | null;
   error: string | null;
   isCelsius: boolean;
-  mapLocation: locationDataset[];
+  mapLocation: locationDataset[] | [];
+  coords: {
+    lat: string;
+    lon: string;
+  } | null;
 }
+
+const initialState = {
+  loading: false,
+  weatherData: null,
+  error: null,
+  isCelsius: true,
+  coords: null,
+  mapLocation: [],
+};
 
 const weatherReducer = (
   state: WeatherState = initialState,
@@ -85,6 +90,20 @@ const weatherReducer = (
         loading: false,
         error: null,
         mapLocation: action.payload,
+      };
+    case ActionTypes.CLEAR_LOCATION_FROM_MAP:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        mapLocation: [],
+      };
+    case ActionTypes.GET_LOCATION_COORDINATES:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        coords: action.payload,
       };
     default:
       return state;

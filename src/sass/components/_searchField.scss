@@ -64,6 +64,7 @@
   &__list {
     width: 100%;
     background: $color-white;
+    margin-top: 0.5em;
 
     &__item {
       display: flex;
@@ -72,6 +73,10 @@
 
       &:not(:last-of-type) {
         border-bottom: 1px solid $color-grey-light;
+      }
+
+      &:hover {
+        background: rgba($color-light-blue-1, 0.2);
       }
     }
 

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { MdSearch, MdClose, MdLocationOn } from "react-icons/md";
 import { useActions } from "../components/hooks/useActions";
 import { useTypedSelector } from "./hooks/useTypedSelector";
+import { locationDataset } from "../store/reducers/weatherReducer";
 
 interface Props {
   openSearch: boolean;
@@ -9,11 +10,11 @@ interface Props {
 }
 
 const SearchField: React.FC<Props> = ({ setOpenSearch }) => {
-  const { getLocationFromMap } = useActions();
+  const { getLocationFromMap, clearLocationFromMap, getLocationCoords } =
+    useActions();
   const { mapLocation } = useTypedSelector((state) => state.weather);
 
   const [inputText, setInputText] = useState("");
-  const [autoComplete, setAutoComplete] = useState([]);
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -25,13 +26,16 @@ const SearchField: React.FC<Props> = ({ setOpenSearch }) => {
     event.preventDefault();
 
     if (!inputText) {
-      setAutoComplete([]);
       return;
     }
   };
 
   useEffect(() => {
-    getLocationFromMap(inputText);
+    if (inputText) {
+      getLocationFromMap(inputText);
+    } else {
+      clearLocationFromMap();
+    }
 
     // eslint-disable-next-line
   }, [inputText]);
@@ -58,8 +62,12 @@ const SearchField: React.FC<Props> = ({ setOpenSearch }) => {
       </form>
       {mapLocation.length > 0 && (
         <ul className="search__list">
-          {mapLocation.map((location) => (
-            <li className="search__list__item" key={location.placeId}>
+          {mapLocation.map((location: locationDataset, index: number) => (
+            <li
+              className="search__list__item"
+              key={index}
+              onClick={() => getLocationCoords(location)}
+            >
               <MdLocationOn className="search__list__item__icon" />{" "}
               <span className="search__list__item__text">
                 {location.display_name}

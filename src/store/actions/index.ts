@@ -23,9 +23,9 @@ interface weatherDegreeIsFahrenheitAction {
   type: ActionTypes.WEATHER_DEGREE_IS_FAHRENHEIT;
 }
 
-interface SearchedWeatherDataSuccessAction {
-  type: ActionTypes.SEARCHED_WEATHER_DATA_SUCCESS;
-  payload: WeatherDataset | null;
+interface SearchedWeatherWoeIdAction {
+  type: ActionTypes.SEARCHED_WEATHER_DATA_WOEID;
+  payload: number;
 }
 
 interface getLocationFromMapAction {
@@ -51,7 +51,7 @@ export type Action =
   | GetWeatherDataFailureAction
   | WeatherDegreeIsCelsiusAction
   | weatherDegreeIsFahrenheitAction
-  | SearchedWeatherDataSuccessAction
+  | SearchedWeatherWoeIdAction
   | getLocationFromMapAction
   | clearLocationFromMapAction
   | getLocationCoordsAction;

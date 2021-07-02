@@ -8,16 +8,15 @@ import ContentSection from "./ContentSection";
 
 const MainContents: React.FC = () => {
   const [openSearch, setOpenSearch] = useState(false);
-  const [woeid, setWoeid] = useState(1398823);
-  const { fetchWeatherData } = useActions();
+  const { fetchWeatherData, searchedLocationWoeId } = useActions();
 
-  const { loading } = useTypedSelector((state) => state.weather);
+  const { loading, woeid, coords } = useTypedSelector((state) => state.weather);
 
   useEffect(() => {
     fetchWeatherData(woeid);
 
     // eslint-disable-next-line
-  }, []);
+  }, [woeid, coords]);
 
   return (
     <Fragment>

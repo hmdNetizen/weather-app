@@ -31,7 +31,7 @@ export const fetchWeatherData =
     }
   };
 
-//   This fetches data corresponding to the input text from openstreetmap api
+//   This fetches data corresponding to the input text from openstreetmap API
 export const getLocationFromMap =
   (position: string) => async (dispatch: Dispatch) => {
     const location = position.split(" ").join("+");
@@ -49,22 +49,44 @@ export const getLocationFromMap =
     }
   };
 
-//   This clears off the data from openstreetmap api
+//   This clears off the data from openstreetmap API
 export const clearLocationFromMap = () => (dispatch: Dispatch) => {
   dispatch({
     type: ActionTypes.CLEAR_LOCATION_FROM_MAP,
   });
 };
 
+// This gets the coordinates of the selected location fetched from openstreet map API
 export const getLocationCoords =
   (coords: { lat: string; lon: string }) => (dispatch: Dispatch) => {
     dispatch({
       type: ActionTypes.GET_LOCATION_COORDINATES,
       payload: {
         lat: coords.lat,
-        long: coords.lon,
+        lon: coords.lon,
       },
     });
+  };
+
+export const searchedLocationWoeId =
+  (coords: { lat: string; lon: string }) => async (dispatch: Dispatch) => {
+    dispatch({
+      type: ActionTypes.GET_WEATHER_DATA,
+    });
+
+    try {
+      const { data } = await axios.get(
+        `${BASE_URL}/search/?lattlong=${coords.lat},${coords.lon}`
+      );
+      dispatch({
+        type: ActionTypes.SEARCHED_WEATHER_DATA_WOEID,
+        payload: data[0].woeid,
+      });
+    } catch (error) {
+      dispatch({
+        type: ActionTypes.GET_WEATHER_DATA_FAILURE,
+      });
+    }
   };
 
 export const getDegreeCelsius = () => (dispatch: Dispatch) =>

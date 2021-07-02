@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { MdSearch, MdClose, MdLocationOn } from "react-icons/md";
 import { useActions } from "../components/hooks/useActions";
 import { useTypedSelector } from "./hooks/useTypedSelector";
@@ -10,9 +10,15 @@ interface Props {
 }
 
 const SearchField: React.FC<Props> = ({ setOpenSearch }) => {
-  const { getLocationFromMap, clearLocationFromMap, getLocationCoords } =
-    useActions();
-  const { mapLocation } = useTypedSelector((state) => state.weather);
+  const {
+    getLocationFromMap,
+    getLocationCoords,
+    searchedLocationWoeId,
+    fetchWeatherData,
+  } = useActions();
+  const { mapLocation, coords, woeid } = useTypedSelector(
+    (state) => state.weather
+  );
 
   const [inputText, setInputText] = useState("");
 
@@ -20,6 +26,7 @@ const SearchField: React.FC<Props> = ({ setOpenSearch }) => {
     event: React.ChangeEvent<HTMLInputElement>
   ): void => {
     setInputText(event.target.value);
+    getLocationFromMap(event.target.value);
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
@@ -30,15 +37,11 @@ const SearchField: React.FC<Props> = ({ setOpenSearch }) => {
     }
   };
 
-  useEffect(() => {
-    if (inputText) {
-      getLocationFromMap(inputText);
-    } else {
-      clearLocationFromMap();
-    }
+  const handleLocationSearched = () => {
+    if (!coords) return;
 
-    // eslint-disable-next-line
-  }, [inputText]);
+    searchedLocationWoeId(coords);
+  };
 
   return (
     <div className="search">
@@ -66,7 +69,11 @@ const SearchField: React.FC<Props> = ({ setOpenSearch }) => {
             <li
               className="search__list__item"
               key={index}
-              onClick={() => getLocationCoords(location)}
+              onClick={() => {
+                getLocationCoords(location);
+                handleLocationSearched();
+                fetchWeatherData(woeid);
+              }}
             >
               <MdLocationOn className="search__list__item__icon" />{" "}
               <span className="search__list__item__text">

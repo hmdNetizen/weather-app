@@ -30,6 +30,7 @@ export interface locationDataset {
 interface WeatherState {
   loading: boolean;
   weatherData: WeatherDataset | null;
+  woeid: number;
   error: string | null;
   isCelsius: boolean;
   mapLocation: locationDataset[] | [];
@@ -42,6 +43,7 @@ interface WeatherState {
 const initialState = {
   loading: false,
   weatherData: null,
+  woeid: 1398823,
   error: null,
   isCelsius: true,
   coords: null,
@@ -65,6 +67,13 @@ const weatherReducer = (
         ...state,
         loading: false,
         weatherData: action.payload,
+        error: null,
+      };
+    case ActionTypes.SEARCHED_WEATHER_DATA_WOEID:
+      return {
+        ...state,
+        loading: false,
+        woeid: action.payload,
         error: null,
       };
     case ActionTypes.GET_WEATHER_DATA_FAILURE:

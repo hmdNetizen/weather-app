@@ -5,6 +5,7 @@ import { MdMyLocation, MdLocationOn } from "react-icons/md";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import showWeatherImage from "../../helpers/showWeatherImage";
 import { celsiusToFahrenheit } from "../../helpers/celsiuToFahrenheit";
+import { useActions } from "../hooks/useActions";
 
 interface Props {
   setOpenSearch: (openSearch: boolean) => void;
@@ -12,7 +13,13 @@ interface Props {
 }
 
 const AsideContent: React.FC<Props> = ({ openSearch, setOpenSearch }) => {
-  const { weatherData, isCelsius } = useTypedSelector((state) => state.weather);
+  // State properties
+  const { weatherData, isCelsius, coords } = useTypedSelector(
+    (state) => state.weather
+  );
+
+  // Action Creators
+  const { getCurrentLocation } = useActions();
 
   return (
     <div className="aside__content">
@@ -25,9 +32,12 @@ const AsideContent: React.FC<Props> = ({ openSearch, setOpenSearch }) => {
         <button className="aside__button" onClick={() => setOpenSearch(true)}>
           Search for places
         </button>
-        <div className="aside__location__icon">
-          <MdMyLocation size={25} />
-        </div>
+        <button
+          className="aside__location__iconButton"
+          onClick={getCurrentLocation}
+        >
+          <MdMyLocation size={23} className="aside__location_icon" />
+        </button>
       </div>
 
       <div className="aside__weather">

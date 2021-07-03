@@ -33,7 +33,7 @@ interface WeatherState {
   woeid: number;
   error: string | null;
   isCelsius: boolean;
-  mapLocation: locationDataset[] | [];
+  autocomplete: locationDataset[] | [];
   coords: {
     lat: string;
     lon: string;
@@ -47,7 +47,7 @@ const initialState = {
   error: null,
   isCelsius: true,
   coords: null,
-  mapLocation: [],
+  autocomplete: [],
 };
 
 const weatherReducer = (
@@ -67,13 +67,6 @@ const weatherReducer = (
         ...state,
         loading: false,
         weatherData: action.payload,
-        error: null,
-      };
-    case ActionTypes.SEARCHED_WEATHER_DATA_WOEID:
-      return {
-        ...state,
-        loading: false,
-        woeid: action.payload,
         error: null,
       };
     case ActionTypes.GET_WEATHER_DATA_FAILURE:
@@ -98,21 +91,33 @@ const weatherReducer = (
         ...state,
         loading: false,
         error: null,
-        mapLocation: action.payload,
-      };
-    case ActionTypes.CLEAR_LOCATION_FROM_MAP:
-      return {
-        ...state,
-        loading: false,
-        error: null,
-        mapLocation: [],
+        autocomplete: action.payload,
       };
     case ActionTypes.GET_LOCATION_COORDINATES:
       return {
         ...state,
-        loading: false,
-        error: null,
         coords: action.payload,
+        error: null,
+      };
+    case ActionTypes.GET_LOCATION_POSITION:
+      return {
+        ...state,
+        loading: false,
+        woeid: action.payload,
+        error: null,
+      };
+    case ActionTypes.GET_CURRENT_LOCATION_COORDINATES_DENIED:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+        coords: null,
+      };
+    case ActionTypes.GET_CURRENT_LOCATION_COORDINATES:
+      return {
+        ...state,
+        coords: action.payload,
+        error: null,
       };
     default:
       return state;

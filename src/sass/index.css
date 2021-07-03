@@ -91,8 +91,8 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 4em;
-  height: 4em;
+  width: 2.5em;
+  height: 2.5em;
   background: #6e707a;
   border-radius: 50%;
   height: 2.5em;
@@ -426,7 +426,7 @@ a {
   background: #535355;
 }
 
-.aside__location__icon {
+.aside__location__iconButton {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -436,13 +436,24 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 4em;
-  height: 4em;
+  width: 2.5em;
+  height: 2.5em;
   background: #6e707a;
   border-radius: 50%;
+  border: 0;
   cursor: pointer;
   -webkit-box-shadow: 1px 5px 3px 1px rgba(0, 0, 0, 0.25);
   box-shadow: 1px 5px 3px 1px rgba(0, 0, 0, 0.25);
+  color: #e7e7eb;
+}
+
+.aside__location__iconButton:hover {
+  background: #666669;
+}
+
+.aside__location__iconButton:active {
+  outline: none;
+  background: #a09fb1;
 }
 
 .aside__weather {
@@ -568,13 +579,11 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 4em;
-  height: 4em;
+  width: 2.5em;
+  height: 2.5em;
   background: #6e707a;
   border-radius: 50%;
   display: block;
-  height: 3em;
-  width: 3em;
   border: 0;
   cursor: pointer;
 }

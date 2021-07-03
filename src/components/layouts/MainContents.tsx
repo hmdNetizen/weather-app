@@ -8,11 +8,15 @@ import ContentSection from "./ContentSection";
 
 const MainContents: React.FC = () => {
   const [openSearch, setOpenSearch] = useState(false);
-  const { fetchWeatherData, searchedLocationWoeId } = useActions();
+  const { fetchWeatherData, getLocationPosition } = useActions();
 
   const { loading, woeid, coords } = useTypedSelector((state) => state.weather);
 
   useEffect(() => {
+    if (coords) {
+      getLocationPosition(coords);
+      setOpenSearch(false);
+    }
     fetchWeatherData(woeid);
 
     // eslint-disable-next-line

@@ -4,6 +4,7 @@ import { TiLocationArrow } from "react-icons/ti";
 
 const RectangularCard: React.FC = () => {
   const { weatherData } = useTypedSelector((state) => state.weather);
+
   return (
     <Fragment>
       {weatherData && (

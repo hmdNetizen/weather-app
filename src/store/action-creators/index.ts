@@ -49,15 +49,8 @@ export const getLocationFromMap =
     }
   };
 
-//   This clears off the data from openstreetmap API
-export const clearLocationFromMap = () => (dispatch: Dispatch) => {
-  dispatch({
-    type: ActionTypes.CLEAR_LOCATION_FROM_MAP,
-  });
-};
-
-// This gets the coordinates of the selected location fetched from openstreet map API
-export const getLocationCoords =
+//   fetches the location coordinates
+export const getLocationsCoords =
   (coords: { lat: string; lon: string }) => (dispatch: Dispatch) => {
     dispatch({
       type: ActionTypes.GET_LOCATION_COORDINATES,
@@ -68,32 +61,56 @@ export const getLocationCoords =
     });
   };
 
-export const searchedLocationWoeId =
-  (coords: { lat: string; lon: string }) => async (dispatch: Dispatch) => {
+// Fetches the position of the location by passing in the coordinates
+export const getLocationPosition =
+  (location: { lat: string; lon: string }) => async (dispatch: Dispatch) => {
     dispatch({
       type: ActionTypes.GET_WEATHER_DATA,
     });
-
     try {
+      const { lat, lon } = location;
       const { data } = await axios.get(
-        `${BASE_URL}/search/?lattlong=${coords.lat},${coords.lon}`
+        `${BASE_URL}/search/?lattlong=${lat},${lon}`
       );
+
       dispatch({
-        type: ActionTypes.SEARCHED_WEATHER_DATA_WOEID,
+        type: ActionTypes.GET_LOCATION_POSITION,
         payload: data[0].woeid,
       });
     } catch (error) {
       dispatch({
         type: ActionTypes.GET_WEATHER_DATA_FAILURE,
+        payload: error.message,
       });
     }
   };
 
+export const getCurrentLocation = () => (dispatch: Dispatch) => {
+  const geolocation = navigator.geolocation;
+  geolocation.getCurrentPosition(
+    (position) => {
+      console.log(position);
+      dispatch({
+        type: ActionTypes.GET_CURRENT_LOCATION_COORDINATES,
+        payload: position.coords,
+      });
+    },
+    (error) => {
+      dispatch({
+        type: ActionTypes.GET_CURRENT_LOCATION_COORDINATES_DENIED,
+        payload: error.message,
+      });
+    }
+  );
+};
+
+//   Converts the degree of temperature to celsius
 export const getDegreeCelsius = () => (dispatch: Dispatch) =>
   dispatch({
     type: ActionTypes.WEATHER_DEGREE_IS_CELSIUS,
   });
 
+//   converts the degree of temperature to fahrenheit
 export const getDegreeFahrenheit = () => (dispatch: Dispatch) => {
   dispatch({
     type: ActionTypes.WEATHER_DEGREE_IS_FAHRENHEIT,

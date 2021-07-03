@@ -10,15 +10,8 @@ interface Props {
 }
 
 const SearchField: React.FC<Props> = ({ setOpenSearch }) => {
-  const {
-    getLocationFromMap,
-    getLocationCoords,
-    searchedLocationWoeId,
-    fetchWeatherData,
-  } = useActions();
-  const { mapLocation, coords, woeid } = useTypedSelector(
-    (state) => state.weather
-  );
+  const { getLocationFromMap, getLocationsCoords } = useActions();
+  const { autocomplete } = useTypedSelector((state) => state.weather);
 
   const [inputText, setInputText] = useState("");
 
@@ -35,12 +28,6 @@ const SearchField: React.FC<Props> = ({ setOpenSearch }) => {
     if (!inputText) {
       return;
     }
-  };
-
-  const handleLocationSearched = () => {
-    if (!coords) return;
-
-    searchedLocationWoeId(coords);
   };
 
   return (
@@ -63,17 +50,16 @@ const SearchField: React.FC<Props> = ({ setOpenSearch }) => {
         </div>
         <button className="search__button">Search</button>
       </form>
-      {mapLocation.length > 0 && (
-        <ul className="search__list">
-          {mapLocation.map((location: locationDataset, index: number) => (
+      {autocomplete.length > 0 && (
+        <ul
+          className="search__list"
+          style={{ display: inputText ? "block" : "none" }}
+        >
+          {autocomplete.map((location: locationDataset, index: number) => (
             <li
               className="search__list__item"
               key={index}
-              onClick={() => {
-                getLocationCoords(location);
-                handleLocationSearched();
-                fetchWeatherData(woeid);
-              }}
+              onClick={() => getLocationsCoords(location)}
             >
               <MdLocationOn className="search__list__item__icon" />{" "}
               <span className="search__list__item__text">

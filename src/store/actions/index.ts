@@ -23,18 +23,14 @@ interface weatherDegreeIsFahrenheitAction {
   type: ActionTypes.WEATHER_DEGREE_IS_FAHRENHEIT;
 }
 
-interface SearchedWeatherWoeIdAction {
-  type: ActionTypes.SEARCHED_WEATHER_DATA_WOEID;
+interface getLocationPositionAction {
+  type: ActionTypes.GET_LOCATION_POSITION;
   payload: number;
 }
 
 interface getLocationFromMapAction {
   type: ActionTypes.GET_LOCATION_FROM_MAP;
   payload: locationDataset[];
-}
-
-interface clearLocationFromMapAction {
-  type: ActionTypes.CLEAR_LOCATION_FROM_MAP;
 }
 
 interface getLocationCoordsAction {
@@ -45,13 +41,27 @@ interface getLocationCoordsAction {
   };
 }
 
+interface getCurrentLocationAction {
+  type: ActionTypes.GET_CURRENT_LOCATION_COORDINATES;
+  payload: {
+    lat: string;
+    lon: string;
+  };
+}
+
+interface getCurrentLocationDeniedAction {
+  type: ActionTypes.GET_CURRENT_LOCATION_COORDINATES_DENIED;
+  payload: string;
+}
+
 export type Action =
   | GetWeatherDataAction
   | GetWeatherDataSuccessAction
   | GetWeatherDataFailureAction
   | WeatherDegreeIsCelsiusAction
   | weatherDegreeIsFahrenheitAction
-  | SearchedWeatherWoeIdAction
+  | getLocationPositionAction
   | getLocationFromMapAction
-  | clearLocationFromMapAction
-  | getLocationCoordsAction;
+  | getLocationCoordsAction
+  | getCurrentLocationAction
+  | getCurrentLocationDeniedAction;

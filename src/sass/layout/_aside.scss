@@ -49,12 +49,23 @@
     }
   }
 
-  &__location__icon {
+  &__location__iconButton {
     @include roundedCircle;
+    border: 0;
     cursor: pointer;
     -webkit-box-shadow: 1px 5px 3px 1px rgba(0, 0, 0, 0.25);
     -moz-box-shadow: 1px 5px 3px 1px rgba(0, 0, 0, 0.25);
     box-shadow: 1px 5px 3px 1px rgba(0, 0, 0, 0.25);
+    color: $color-white;
+
+    &:hover {
+      background: $color-grey-1;
+    }
+
+    &:active {
+      outline: none;
+      background: $color-grey-light-1;
+    }
   }
 
   &__weather {

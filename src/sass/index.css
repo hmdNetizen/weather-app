@@ -384,6 +384,10 @@ a {
   height: 100%;
 }
 
+.aside__error {
+  height: 100vh;
+}
+
 .aside__background {
   max-width: 75em;
   position: absolute;
@@ -554,6 +558,7 @@ a {
   display: grid;
   -ms-grid-columns: 1fr 2fr;
       grid-template-columns: 1fr 2fr;
+  height: 100%;
 }
 
 .section {

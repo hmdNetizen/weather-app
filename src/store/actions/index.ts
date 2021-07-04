@@ -42,15 +42,12 @@ interface getLocationCoordsAction {
 }
 
 interface getCurrentLocationAction {
-  type: ActionTypes.GET_CURRENT_LOCATION_COORDINATES;
-  payload: {
-    lat: string;
-    lon: string;
-  };
+  type: ActionTypes.GET_CURRENT_LOCATION_POSITION;
+  payload: number;
 }
 
 interface getCurrentLocationDeniedAction {
-  type: ActionTypes.GET_CURRENT_LOCATION_COORDINATES_DENIED;
+  type: ActionTypes.GET_CURRENT_LOCATION_POSITION_DENIED;
   payload: string;
 }
 

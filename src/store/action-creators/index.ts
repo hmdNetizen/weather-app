@@ -88,16 +88,23 @@ export const getLocationPosition =
 export const getCurrentLocation = () => (dispatch: Dispatch) => {
   const geolocation = navigator.geolocation;
   geolocation.getCurrentPosition(
-    (position) => {
+    async (position) => {
       console.log(position);
+
+      const { latitude, longitude } = position.coords;
+
+      const { data } = await axios.get(
+        `${BASE_URL}/search/?lattlong=${latitude},${longitude}`
+      );
+
       dispatch({
-        type: ActionTypes.GET_CURRENT_LOCATION_COORDINATES,
-        payload: position.coords,
+        type: ActionTypes.GET_CURRENT_LOCATION_POSITION,
+        payload: data[0].woeid,
       });
     },
     (error) => {
       dispatch({
-        type: ActionTypes.GET_CURRENT_LOCATION_COORDINATES_DENIED,
+        type: ActionTypes.GET_CURRENT_LOCATION_POSITION_DENIED,
         payload: error.message,
       });
     }

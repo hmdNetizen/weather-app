@@ -10,7 +10,9 @@ const MainContents: React.FC = () => {
   const [openSearch, setOpenSearch] = useState(false);
   const { fetchWeatherData, getLocationPosition } = useActions();
 
-  const { loading, woeid, coords } = useTypedSelector((state) => state.weather);
+  const { loading, woeid, coords, error } = useTypedSelector(
+    (state) => state.weather
+  );
 
   useEffect(() => {
     if (coords) {
@@ -28,7 +30,7 @@ const MainContents: React.FC = () => {
         <Spinner />
       ) : (
         <main className="main">
-          <aside className="aside">
+          <aside className={error ? "aside aside__error" : "aside"}>
             {!openSearch ? (
               <AsideContent
                 setOpenSearch={setOpenSearch}

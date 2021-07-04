@@ -12,6 +12,10 @@
     height: 100%;
   }
 
+  &__error {
+    height: 100vh;
+  }
+
   &__background {
     max-width: 75em;
     position: absolute;

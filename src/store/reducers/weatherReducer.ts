@@ -106,18 +106,17 @@ const weatherReducer = (
         woeid: action.payload,
         error: null,
       };
-    case ActionTypes.GET_CURRENT_LOCATION_COORDINATES_DENIED:
+    case ActionTypes.GET_CURRENT_LOCATION_POSITION:
+      return {
+        ...state,
+        woeid: action.payload,
+        error: null,
+      };
+    case ActionTypes.GET_CURRENT_LOCATION_POSITION_DENIED:
       return {
         ...state,
         loading: false,
-        error: action.payload,
         coords: null,
-      };
-    case ActionTypes.GET_CURRENT_LOCATION_COORDINATES:
-      return {
-        ...state,
-        coords: action.payload,
-        error: null,
       };
     default:
       return state;

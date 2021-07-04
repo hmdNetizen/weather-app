@@ -612,11 +612,29 @@ a {
   background: #0f0b53;
 }
 
-.section .section__highlights {
+.section__error {
+  height: 70vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section__error__text {
+  font-size: 2rem;
+  color: #ce4343;
+}
+
+.section__highlights {
   margin-top: 5em;
 }
 
-.section .section__highlights__title {
+.section__highlights__title {
   font-size: 1.7rem;
   font-weight: 600;
   margin-bottom: 2em;

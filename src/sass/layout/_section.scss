@@ -32,7 +32,17 @@
     }
   }
 
-  .section__highlights {
+  &__error {
+    height: 70vh;
+    @include flexHorizontal;
+
+    &__text {
+      font-size: 2rem;
+      color: $color-danger;
+    }
+  }
+
+  &__highlights {
     margin-top: 5em;
 
     &__title {

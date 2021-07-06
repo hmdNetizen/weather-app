@@ -36,14 +36,17 @@ interface getLocationFromMapAction {
 interface getLocationCoordsAction {
   type: ActionTypes.GET_LOCATION_COORDINATES;
   payload: {
-    lat: string;
-    lon: string;
+    lat: string | number;
+    lon: string | number;
   };
 }
 
 interface getCurrentLocationAction {
   type: ActionTypes.GET_CURRENT_LOCATION_POSITION;
-  payload: number;
+  payload: {
+    lat: string | number;
+    lon: string | number;
+  };
 }
 
 interface getCurrentLocationDeniedAction {

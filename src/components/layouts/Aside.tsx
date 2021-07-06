@@ -12,14 +12,12 @@ interface Props {
   openSearch: boolean;
 }
 
-const AsideContent: React.FC<Props> = ({ openSearch, setOpenSearch }) => {
+const AsideContent: React.FC<Props> = ({ setOpenSearch }) => {
   // State properties
-  const { weatherData, isCelsius, coords } = useTypedSelector(
-    (state) => state.weather
-  );
+  const { weatherData, isCelsius } = useTypedSelector((state) => state.weather);
 
   // Action Creators
-  const { getCurrentLocation } = useActions();
+  const { getCurrentLocationPosition } = useActions();
 
   return (
     <div className="aside__content">
@@ -34,7 +32,7 @@ const AsideContent: React.FC<Props> = ({ openSearch, setOpenSearch }) => {
         </button>
         <button
           className="aside__location__iconButton"
-          onClick={getCurrentLocation}
+          onClick={getCurrentLocationPosition}
         >
           <MdMyLocation size={23} className="aside__location_icon" />
         </button>

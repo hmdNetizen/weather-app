@@ -35,8 +35,8 @@ interface WeatherState {
   isCelsius: boolean;
   autocomplete: locationDataset[] | [];
   coords: {
-    lat: string;
-    lon: string;
+    lat: string | number;
+    lon: string | number;
   } | null;
 }
 
@@ -94,6 +94,7 @@ const weatherReducer = (
         autocomplete: action.payload,
       };
     case ActionTypes.GET_LOCATION_COORDINATES:
+    case ActionTypes.GET_CURRENT_LOCATION_POSITION:
       return {
         ...state,
         coords: action.payload,
@@ -106,17 +107,11 @@ const weatherReducer = (
         woeid: action.payload,
         error: null,
       };
-    case ActionTypes.GET_CURRENT_LOCATION_POSITION:
-      return {
-        ...state,
-        woeid: action.payload,
-        error: null,
-      };
+
     case ActionTypes.GET_CURRENT_LOCATION_POSITION_DENIED:
       return {
         ...state,
         loading: false,
-        coords: null,
       };
     default:
       return state;

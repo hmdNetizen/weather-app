@@ -63,10 +63,8 @@ export const getLocationsCoords =
 
 // Fetches the position of the location by passing in the coordinates
 export const getLocationPosition =
-  (location: { lat: string; lon: string }) => async (dispatch: Dispatch) => {
-    dispatch({
-      type: ActionTypes.GET_WEATHER_DATA,
-    });
+  (location: { lat: string | number; lon: string | number }) =>
+  async (dispatch: Dispatch) => {
     try {
       const { lat, lon } = location;
       const { data } = await axios.get(
@@ -85,28 +83,26 @@ export const getLocationPosition =
     }
   };
 
-export const getCurrentLocation = () => (dispatch: Dispatch) => {
+export const getCurrentLocationPosition = () => (dispatch: Dispatch) => {
   const geolocation = navigator.geolocation;
+
   geolocation.getCurrentPosition(
-    async (position) => {
-      console.log(position);
-
-      const { latitude, longitude } = position.coords;
-
-      const { data } = await axios.get(
-        `${BASE_URL}/search/?lattlong=${latitude},${longitude}`
-      );
-
+    (position) => {
       dispatch({
         type: ActionTypes.GET_CURRENT_LOCATION_POSITION,
-        payload: data[0].woeid,
+        payload: {
+          lat: position.coords.latitude,
+          lon: position.coords.longitude,
+        },
       });
     },
     (error) => {
-      dispatch({
-        type: ActionTypes.GET_CURRENT_LOCATION_POSITION_DENIED,
-        payload: error.message,
-      });
+      if (error.code === 1) {
+        dispatch({
+          type: ActionTypes.GET_CURRENT_LOCATION_POSITION_DENIED,
+          payload: error.message,
+        });
+      }
     }
   );
 };

@@ -89,7 +89,6 @@ const weatherReducer = (
     case ActionTypes.GET_LOCATION_FROM_MAP:
       return {
         ...state,
-        loading: false,
         error: null,
         autocomplete: action.payload,
       };
@@ -110,7 +109,6 @@ const weatherReducer = (
     case ActionTypes.GET_CURRENT_LOCATION_POSITION_DENIED:
       return {
         ...state,
-        loading: false,
       };
     default:
       return state;

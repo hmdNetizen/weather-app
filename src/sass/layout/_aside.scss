@@ -118,6 +118,10 @@
     text-align: center;
     padding-top: 7em;
 
+    @include breakpoint(xxs) {
+      padding-top: 3em;
+    }
+
     &__icon {
       width: 22em;
     }

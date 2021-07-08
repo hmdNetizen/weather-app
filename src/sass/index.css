@@ -551,6 +551,12 @@ a {
   padding-top: 7em;
 }
 
+@media (max-width: 450px) {
+  .aside__weather {
+    padding-top: 3em;
+  }
+}
+
 .aside__weather__icon {
   width: 22em;
 }

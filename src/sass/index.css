@@ -208,12 +208,6 @@ a {
   }
 }
 
-@media (max-width: 450px) {
-  .card .squareCard:not(:last-of-type) {
-    margin-right: 1em;
-  }
-}
-
 .card .squareCard__title {
   font-size: 1.2rem;
   font-weight: 500;

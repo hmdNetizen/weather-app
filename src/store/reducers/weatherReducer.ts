@@ -109,6 +109,7 @@ const weatherReducer = (
     case ActionTypes.GET_CURRENT_LOCATION_POSITION_DENIED:
       return {
         ...state,
+        error: action.payload,
       };
     default:
       return state;

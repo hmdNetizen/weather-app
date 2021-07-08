@@ -3,6 +3,10 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 3em;
 
+  @include breakpoint(xs) {
+    grid-template-columns: 1fr;
+  }
+
   &__content {
     background: $color-secondary;
     padding: 1.5em;

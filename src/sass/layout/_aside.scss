@@ -1,10 +1,26 @@
 .aside {
   background: $color-secondary;
-  height: 100%;
+  min-height: 100%;
   position: relative;
   overflow: hidden;
   padding: 3em 5em 5em;
   transition: all 0.25s ease-in-out;
+  flex: 1;
+
+  @include breakpoint(md) {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+
+  @include breakpoint(sm) {
+    padding-left: 5em;
+    padding-right: 5em;
+  }
+
+  @include breakpoint(xxs) {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
 
   &__content {
     transition: all 0.25s ease-in-out;
@@ -22,6 +38,27 @@
     top: 10em;
     left: -11em;
     opacity: 0.075;
+
+    @include breakpoint(sm) {
+      max-width: 100em;
+      width: 100em;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @include breakpoint(xs) {
+      max-width: 75em;
+      width: 75em;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @include breakpoint(xxs) {
+      max-width: 60em;
+      width: 60em;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 
   &__wrapper {

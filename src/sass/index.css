@@ -15,6 +15,7 @@ body {
   background: #100e1d;
   color: #e7e7eb;
   font-family: "Raleway", sans-serif;
+  max-height: 100%;
 }
 
 ul {
@@ -31,6 +32,13 @@ a {
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
   grid-gap: 3em;
+}
+
+@media (max-width: 599px) {
+  .rectangular__card {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
 }
 
 .rectangular__card__content {
@@ -192,6 +200,18 @@ a {
       -ms-flex-align: center;
           align-items: center;
   background: #1e213a;
+}
+
+@media (max-width: 1279px) {
+  .card .squareCard {
+    margin-bottom: 2em;
+  }
+}
+
+@media (max-width: 450px) {
+  .card .squareCard:not(:last-of-type) {
+    margin-right: 1em;
+  }
 }
 
 .card .squareCard__title {
@@ -369,12 +389,36 @@ a {
 
 .aside {
   background: #1e213a;
-  height: 100%;
+  min-height: 100%;
   position: relative;
   overflow: hidden;
   padding: 3em 5em 5em;
   -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+@media (max-width: 1279px) {
+  .aside {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+}
+
+@media (max-width: 960px) {
+  .aside {
+    padding-left: 5em;
+    padding-right: 5em;
+  }
+}
+
+@media (max-width: 450px) {
+  .aside {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
 }
 
 .aside__content {
@@ -394,6 +438,36 @@ a {
   top: 10em;
   left: -11em;
   opacity: 0.075;
+}
+
+@media (max-width: 960px) {
+  .aside__background {
+    max-width: 100em;
+    width: 100em;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 599px) {
+  .aside__background {
+    max-width: 75em;
+    width: 75em;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 450px) {
+  .aside__background {
+    max-width: 60em;
+    width: 60em;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
 }
 
 .aside__wrapper {
@@ -554,15 +628,48 @@ a {
 }
 
 .main {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 2fr;
-      grid-template-columns: 1fr 2fr;
-  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+}
+
+@media (max-width: 960px) {
+  .main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .section {
   padding: 3em 7em 2em;
+  min-height: 100%;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+@media (max-width: 1279px) {
+  .section {
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+}
+
+@media (max-width: 599px) {
+  .section {
+    padding-left: 5em;
+    padding-right: 5em;
+  }
+}
+
+@media (max-width: 450px) {
+  .section {
+    padding-left: 3em;
+    padding-right: 3em;
+  }
 }
 
 .section .section__temperature {

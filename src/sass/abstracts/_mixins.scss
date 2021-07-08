@@ -19,3 +19,54 @@
   justify-content: center;
   align-items: center;
 }
+
+// MEDIA QUERIES
+@mixin breakpoint($value) {
+  @if $value == xxxs {
+    @media (max-width: 320px) {
+      @content;
+    }
+  }
+
+  @if $value == xxs {
+    @media (max-width: 450px) {
+      @content;
+    }
+  }
+
+  @if $value == smx {
+    @media (max-width: 760px) {
+      @content;
+    }
+  }
+
+  @if $value == xs {
+    @media (max-width: 599px) {
+      @content;
+    }
+  }
+
+  @if $value == sm {
+    @media (max-width: 960px) {
+      @content;
+    }
+  }
+
+  @if $value == md {
+    @media (max-width: 1279px) {
+      @content;
+    }
+  }
+
+  @if $value == lg {
+    @media (max-width: 1919px) {
+      @content;
+    }
+  }
+
+  @if $value == xl {
+    @media (min-width: 1920px) {
+      @content;
+    }
+  }
+}

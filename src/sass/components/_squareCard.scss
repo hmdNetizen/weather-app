@@ -11,6 +11,16 @@
     @include flexVertical;
     background: $color-secondary;
 
+    @include breakpoint(md) {
+      margin-bottom: 2em;
+    }
+
+    &:not(:last-of-type) {
+      @include breakpoint(xxs) {
+        margin-right: 1em;
+      }
+    }
+
     &__title {
       font-size: 1.2rem;
       font-weight: 500;

@@ -97,12 +97,10 @@ export const getCurrentLocationPosition = () => (dispatch: Dispatch) => {
       });
     },
     (error) => {
-      if (error.code === 1) {
-        dispatch({
-          type: ActionTypes.GET_CURRENT_LOCATION_POSITION_DENIED,
-          payload: error.message,
-        });
-      }
+      dispatch({
+        type: ActionTypes.GET_CURRENT_LOCATION_POSITION_DENIED,
+        payload: error.message,
+      });
     }
   );
 };

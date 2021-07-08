@@ -1,5 +1,22 @@
 .section {
   padding: 3em 7em 2em;
+  min-height: 100%;
+  flex: 2;
+
+  @include breakpoint(md) {
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+
+  @include breakpoint(xs) {
+    padding-left: 5em;
+    padding-right: 5em;
+  }
+
+  @include breakpoint(xxs) {
+    padding-left: 3em;
+    padding-right: 3em;
+  }
 
   .section__temperature {
     display: flex;

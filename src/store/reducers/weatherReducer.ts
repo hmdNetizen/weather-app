@@ -103,7 +103,6 @@ const weatherReducer = (
     case ActionTypes.GET_LOCATION_POSITION:
       return {
         ...state,
-        loading: false,
         woeid: action.payload,
         error: null,
       };

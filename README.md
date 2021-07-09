@@ -39,8 +39,6 @@
 
 ![screenshot](https://i.imgur.com/HoMGZHo.gif)
 
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
-
 - [Demo](https://hmdnetizen-weather-app.netlify.app/)
 - This project really helps me in solidifying my Typescript knowledge.
 

@@ -6,19 +6,19 @@ import SquareCard from "../SquareCard";
 import Footer from "./Footer";
 
 const ContentSection: React.FC = () => {
-  const { weatherData, error } = useTypedSelector((state) => state.weather);
+  const { weatherData, error, isCelsius } = useTypedSelector((state) => state.weather);
   const { getDegreeCelsius, getDegreeFahrenheit } = useActions();
   return (
     <section className="section">
       <div className="section__temperature">
         <button
-          className="section__temperature__button section__temperature__button--celsius"
+          className={`section__temperature__button ${isCelsius ? "section__temperature__button--selected" : "section__temperature__button--unselected"}`}
           onClick={getDegreeCelsius}
         >
           <sup>o</sup>C
         </button>
         <button
-          className="section__temperature__button section__temperature__button--fahrenheit"
+          className={`section__temperature__button ${!isCelsius ? "section__temperature__button--selected" : "section__temperature__button--unselected"}`}
           onClick={getDegreeFahrenheit}
         >
           <sup>o</sup>F

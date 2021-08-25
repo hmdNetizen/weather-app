@@ -698,24 +698,24 @@ a {
   display: block;
   border: 0;
   cursor: pointer;
-}
-
-.section .section__temperature__button--celsius {
-  background: #e7e7eb;
-  color: #110e3c;
   margin-right: 1em;
 }
 
-.section .section__temperature__button--celsius:active {
+.section .section__temperature__button--selected {
+  background: #e7e7eb;
+  color: #110e3c;
+}
+
+.section .section__temperature__button--selected:active {
   background: #a09fb1;
 }
 
-.section .section__temperature__button--fahrenheit {
+.section .section__temperature__button--unselected {
   background: #585676;
   color: #e7e7eb;
 }
 
-.section .section__temperature__button--fahrenheit:active {
+.section .section__temperature__button--unselected:active {
   background: #0f0b53;
 }
 

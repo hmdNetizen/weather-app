@@ -1,11 +1,11 @@
 module.exports = {
   verbose: true,
-  moduleNameMapper: {
-    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-  },
-  setupFiles: ['<rootDir>/define-deprecated-global.js'],
   // testEnvironment: 'jsdom',
   errorOnDeprecated: true,
+  "moduleNameMapper": {
+    "^react-native$": "react-native-web",
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "identity-obj-proxy"
+  },
   preset: 'ts-jest',
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}'
@@ -15,8 +15,13 @@ module.exports = {
     '/.*.test.[jt]sx?$',
     '/node_modules'
   ],
-  setupFilesAfterEnv: [
-    '<rootDir>/enzyme.config.ts'
+  "setupFiles": [
+    "react-app-polyfill/jsdom"
+  ],
+  "setupFilesAfterEnv": [],
+  "testMatch": [
+    "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+    "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
   ],
   snapshotSerializers: [
     'enzyme-to-json/serializer'

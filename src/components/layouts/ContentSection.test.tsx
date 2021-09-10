@@ -1,12 +1,16 @@
 /* eslint-env jest */
-import { shallow } from 'enzyme';
+import { configure, HTMLAttributes, shallow, ShallowWrapper } from 'enzyme';
 import React from 'react';
 import ContentSection from './ContentSection';
 
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
+
 describe('Selected state of temperature butttons', () => {
   let actualContent
-  let fahrenheitButton
-  let celciusButton
+  let fahrenheitButton: ShallowWrapper<HTMLAttributes, any>
+  let celciusButton: ShallowWrapper<HTMLAttributes, any>
 
   beforeEach(() => {
     actualContent = shallow(
@@ -27,7 +31,6 @@ describe('Selected state of temperature butttons', () => {
     fahrenheitButton.simulate('click');
 
     // assert
-    expect(fahrenheitButton.onClick).toHaveBeenCalledTimes(1);
     expect(fahrenheitButton).toHaveClass("section__temperature__button--selected");
     expect(celciusButton).toHaveClass("section__temperature__button--unselected");
   });

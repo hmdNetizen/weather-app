@@ -60,6 +60,7 @@
     "react-moment": "^1.1.1",
     "react-redux": "^7.2.4",
     "react-refresh": "^0.8.3",
+    "react-test-renderer": "^17.0.2",
     "redux": "^4.1.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0",
@@ -120,7 +121,7 @@
       "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
     ],
     "testEnvironment": "jsdom",
-    "testRunner": "/Users/jonathan.stieglitz/Code/weather-app/node_modules/jest-circus/runner.js",
+    "testRunner": "../node_modules/jest-circus/runner.js",
     "transform": {
       "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/config/jest/babelTransform.js",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
@@ -133,7 +134,7 @@
     "modulePaths": [],
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
-      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "identity-obj-proxy"
     },
     "moduleFileExtensions": [
       "web.js",
@@ -151,7 +152,9 @@
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
     ],
-    "resetMocks": true
+    "resetMocks": true,
+    "^react(.*)$": "<rootDir>/vendor/react-master$1",
+    "^config$": "<rootDir>/configs/app-config.js"
   },
   "babel": {
     "presets": [
@@ -159,12 +162,16 @@
     ]
   },
   "devDependencies": {
+    "@types/enzyme": "^3.10.9",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^26.0.24",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "enzyme-to-json": "^3.6.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.1.0",
+    "jsdom": "17.0.0",
+    "jsdom-global": "3.0.2",
     "ts-jest": "^27.0.5"
   }
 }

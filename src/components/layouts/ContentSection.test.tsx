@@ -1,5 +1,4 @@
 /* eslint-env jest */
-// import { configure, HTMLAttributes, shallow, ShallowWrapper } from 'enzyme';
 import { render, RenderResult, screen } from '@testing-library/react';
 import React from 'react';
 import ContentSection from './ContentSection';
@@ -7,17 +6,17 @@ import Root from '../../root/Root'
 
 describe('Selected state of temperature butttons', () => {
   let actualContent: RenderResult
-  // let fahrenheitButton: ShallowWrapper<HTMLAttributes, any>
-  // let celciusButton: ShallowWrapper<HTMLAttributes, any>
+  let fahrenheitButton: HTMLElement
+  let celciusButton: HTMLElement
 
   beforeEach(() => {
-    actualContent = render(
+    render(
       <Root>
         <ContentSection />
       </Root>
     );
-    // fahrenheitButton = actualContent.find('[data-id="F"]');
-    // celciusButton = actualContent.find('[data-id="C"]');
+    fahrenheitButton = screen.getByTestId('F');
+    celciusButton = screen.getByTestId('C');
   });
 
   it('renders App component', () => {
@@ -27,13 +26,13 @@ describe('Selected state of temperature butttons', () => {
   
   it('is on Celcius at load', () => {
     // assert
-    // expect(celciusButton).toHaveClass("section__temperature__button--selected");
-    // expect(fahrenheitButton).toHaveClass("section__temperature__button--unselected");
+    expect(celciusButton).toHaveClass("section__temperature__button--selected");
+    expect(fahrenheitButton).toHaveClass("section__temperature__button--unselected");
   });
 
   // it('switches to Fahrenheit if the F buton is clicked', () => {
-  //   // act
-  //   fahrenheitButton.simulate('click');
+    // act
+    // fahrenheitButton.simulate('click');
 
   //   // assert
   //   expect(fahrenheitButton).toHaveClass("section__temperature__button--selected");

@@ -12,14 +12,14 @@ const ContentSection: React.FC = () => {
     <section className="section">
       <div className="section__temperature">
         <button
-          data-id="C"
+          data-testid="C"
           className={`section__temperature__button ${isCelsius ? "section__temperature__button--selected" : "section__temperature__button--unselected"}`}
           onClick={getDegreeCelsius}
         >
           <sup>o</sup>C
         </button>
         <button
-          data-id="F"
+          data-testid="F"
           className={`section__temperature__button ${!isCelsius ? "section__temperature__button--selected" : "section__temperature__button--unselected"}`}
           onClick={getDegreeFahrenheit}
         >

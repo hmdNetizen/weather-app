@@ -20,7 +20,7 @@ const AsideContent: React.FC<Props> = ({ setOpenSearch }) => {
   const { getCurrentLocationPosition } = useActions();
 
   return (
-    <div className="aside__content">
+    <div className="aside__content" data-testid="aside">
       <img
         src={cloudBackground}
         alt="cloud background"
@@ -33,6 +33,7 @@ const AsideContent: React.FC<Props> = ({ setOpenSearch }) => {
         <button
           className="aside__location__iconButton"
           onClick={getCurrentLocationPosition}
+          data-testid="location-btn"
         >
           <MdMyLocation size={23} className="aside__location_icon" />
         </button>
@@ -41,13 +42,13 @@ const AsideContent: React.FC<Props> = ({ setOpenSearch }) => {
       <div className="aside__weather">
         {weatherData && (
           <Fragment>
-            <img
+            {/* <img
               src={showWeatherImage(
                 weatherData.consolidated_weather[0].weather_state_abbr
               )}
               alt="Weather Icon"
               className="aside__weather__icon"
-            />
+            /> */}
             <div className="aside__weather__description">
               <h1 className="aside__weather__degree">
                 {!isCelsius

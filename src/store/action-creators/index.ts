@@ -23,7 +23,7 @@ export const fetchWeatherData =
       dispatch({
         type: ActionTypes.WEATHER_DEGREE_IS_CELSIUS,
       });
-    } catch (error) {
+    } catch (error: any) {
       dispatch({
         type: ActionTypes.GET_WEATHER_DATA_FAILURE,
         payload: error.message,
@@ -44,7 +44,7 @@ export const getLocationFromMap =
         type: ActionTypes.GET_LOCATION_FROM_MAP,
         payload: data,
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error(error.message);
     }
   };
@@ -75,7 +75,7 @@ export const getLocationPosition =
         type: ActionTypes.GET_LOCATION_POSITION,
         payload: data[0].woeid,
       });
-    } catch (error) {
+    } catch (error: any) {
       dispatch({
         type: ActionTypes.GET_WEATHER_DATA_FAILURE,
         payload: error.message,

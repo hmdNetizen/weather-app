@@ -1,13 +1,12 @@
 /* eslint-env jest */
-import { render, RenderResult, screen } from '@testing-library/react';
-import React from 'react';
-import ContentSection from './ContentSection';
-import Root from '../../root/Root'
+import { render, RenderResult, screen } from "@testing-library/react";
+import ContentSection from "./ContentSection";
+import Root from "../../root/Root";
 
-describe('Selected state of temperature butttons', () => {
-  let actualContent: RenderResult
-  let fahrenheitButton: HTMLElement
-  let celciusButton: HTMLElement
+describe("Selected state of temperature butttons", () => {
+  let actualContent: RenderResult;
+  let fahrenheitButton: HTMLElement;
+  let celciusButton: HTMLElement;
 
   beforeEach(() => {
     render(
@@ -15,24 +14,25 @@ describe('Selected state of temperature butttons', () => {
         <ContentSection />
       </Root>
     );
-    fahrenheitButton = screen.getByTestId('F');
-    celciusButton = screen.getByTestId('C');
+    fahrenheitButton = screen.getByTestId("F");
+    celciusButton = screen.getByTestId("C");
   });
 
-  it('renders App component', () => {
+  it("renders App component", () => {
     screen.debug();
   });
 
-  
-  it('is on Celcius at load', () => {
-    // assert
-    expect(celciusButton).toHaveClass("section__temperature__button--selected");
-    expect(fahrenheitButton).toHaveClass("section__temperature__button--unselected");
-  });
+  // it("is on Celcius at load", () => {
+  //   // assert
+  //   expect(celciusButton).toHaveClass("section__temperature__button--selected");
+  //   expect(fahrenheitButton).toHaveClass(
+  //     "section__temperature__button--unselected"
+  //   );
+  // });
 
   // it('switches to Fahrenheit if the F buton is clicked', () => {
-    // act
-    // fahrenheitButton.simulate('click');
+  // act
+  // fahrenheitButton.simulate('click');
 
   //   // assert
   //   expect(fahrenheitButton).toHaveClass("section__temperature__button--selected");

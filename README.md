@@ -72,6 +72,9 @@ $ npm install
 
 # Run the app
 $ npm start
+
+# Run the test
+$ npm run test
 ```
 
 ## Acknowledgements

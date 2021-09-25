@@ -42,13 +42,13 @@ const AsideContent: React.FC<Props> = ({ setOpenSearch }) => {
       <div className="aside__weather">
         {weatherData && (
           <Fragment>
-            {/* <img
+            <img
               src={showWeatherImage(
                 weatherData.consolidated_weather[0].weather_state_abbr
               )}
               alt="Weather Icon"
               className="aside__weather__icon"
-            /> */}
+            />
             <div className="aside__weather__description">
               <h1 className="aside__weather__degree">
                 {!isCelsius

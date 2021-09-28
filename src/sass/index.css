@@ -701,21 +701,21 @@ a {
   margin-right: 1em;
 }
 
-.section .section__temperature__button--selected {
+.section .section__temperature__button--unselected {
   background: #585676;
   color: #e7e7eb;
 }
 
-.section .section__temperature__button--selected:active {
+.section .section__temperature__button--unselected:active {
   background: #a09fb1;
 }
 
-.section .section__temperature__button--unselected {
+.section .section__temperature__button--selected {
   background: #e7e7eb;
   color: #110e3c;
 }
 
-.section .section__temperature__button--unselected:active {
+.section .section__temperature__button--selected:active {
   background: #585676;
   color: #e7e7eb;
 }
